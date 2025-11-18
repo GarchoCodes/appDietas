@@ -76,9 +76,10 @@
                     app:cardElevation="4dp">
 
                     <LinearLayout
+                        android:id="@+id/llvInfoNutrientes"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/lightblue"
+                        android:background="@color/orange"
                         android:orientation="vertical"
                         android:padding="16dp">
 
@@ -240,6 +241,7 @@
                     android:layout_height="wrap_content"
                     android:paddingVertical="8dp"
                     android:text="Ingrediente\nnumero de g" />
+
             </LinearLayout>
 
             <!-- 3. INSTRUCCIONES -->
@@ -271,7 +273,11 @@
                     android:padding="4dp"
                     android:src="@drawable/icon_flecha" />
 
+
+
             </LinearLayout>
+
+
 
             <LinearLayout
                 android:id="@+id/content_instrucciones"
@@ -279,7 +285,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingHorizontal="16dp"
-                android:paddingBottom="300dp"
+                android:paddingBottom="30dp"
                 android:visibility="gone">
 
                 <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:textStyle="bold" android:text="PASO 1" android:paddingTop="8dp"/>
@@ -299,6 +305,15 @@
                     android:text="Aqui vamos escribiendo paso por paso como hacemos" />
 
             </LinearLayout>
+            <Button
+                android:id="@+id/button"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/black"
+                android:text="Cambiar comida" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

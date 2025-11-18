@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.content.Intent;
+import android.widget.Button;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,6 +38,15 @@ public class ComidasDiaActivity extends AppCompatActivity {
         headerInstrucciones = findViewById(R.id.header_instrucciones);
         contentInstrucciones = findViewById(R.id.content_instrucciones);
         arrowInstrucciones = findViewById(R.id.arrow_instrucciones); // AGREGA este ImageView al layout XML
+
+
+        Button botonCambiar = findViewById(R.id.button);
+
+        botonCambiar.setOnClickListener(view -> {
+            Intent intent = new Intent(ComidasDiaActivity.this, CambiarComidaActivity.class);
+            startActivity(intent);
+        });
+
 
         // Ocultar contenidos al inicio
         contentIngredientes.setVisibility(View.GONE);
