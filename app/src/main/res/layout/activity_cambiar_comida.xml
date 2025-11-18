@@ -2,9 +2,142 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CambiarComidaActivity">
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tituloFormulario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Añadir Comida"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/orange"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutNombreComida"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Nombre de la Comida"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintTop_toBottomOf="@id/tituloFormulario"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextNombreComida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textViewMomentoLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar Momento del Día:"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayoutNombreComida"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerMomentoComida"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/momentos_comida"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/textViewMomentoLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/textViewMacrosLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Información Nutricional (en gramos):"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/spinnerMomentoComida"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutGrasas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Grasas"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        app:layout_constraintTop_toBottomOf="@id/textViewMacrosLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/textInputLayoutProteinas"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextGrasas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:maxLength="5"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutProteinas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Proteínas"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        app:layout_constraintTop_toTopOf="@id/textInputLayoutGrasas"
+        app:layout_constraintStart_toEndOf="@id/textInputLayoutGrasas"
+        app:layout_constraintEnd_toStartOf="@id/textInputLayoutCarbohidratos"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_marginEnd="8dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextProteinas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:maxLength="5"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutCarbohidratos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Carbos."
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        app:layout_constraintTop_toTopOf="@id/textInputLayoutGrasas"
+        app:layout_constraintStart_toEndOf="@id/textInputLayoutProteinas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextCarbohidratos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:maxLength="5"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Guardar Comida"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/orange"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
