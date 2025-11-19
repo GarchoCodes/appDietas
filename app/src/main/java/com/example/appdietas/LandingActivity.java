@@ -32,7 +32,7 @@ public class LandingActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("appPrefs", MODE_PRIVATE);
         boolean isFirstRun = prefs.getBoolean("isFirstRun", true);
 
-        if (isFirstRun) {
+        if (!isFirstRun) {
             // !isFirstRun para la version FINAL IMPORTANTEEEEEE
             // Ya ha abierto la app antes → ir directamente al MainActivity
             startActivity(new Intent(this, LoginActivity.class));

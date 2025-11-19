@@ -2,8 +2,7 @@
 <resources>
     <string-array name="momentos_comida">
         <item>Desayuno</item>
-        <item>Almuerzo</item>
+        <item>Comida</item>
         <item>Cena</item>
-        <item>Merienda</item>
     </string-array>
 </resources>

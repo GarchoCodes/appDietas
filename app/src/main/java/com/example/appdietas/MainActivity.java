@@ -1,9 +1,12 @@
 package com.example.appdietas;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -21,7 +24,45 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        String[] diasSemana = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
 
+        String[] tiposComida = {"Desayuno", "Comida", "Cena"};
+
+        for (int i = 1; i <= 7; i++) {
+
+            for (String tipo : tiposComida) {
+
+                String nombreID = "card" + tipo + i;
+
+                int resID = getResources().getIdentifier(nombreID, "id", getPackageName());
+
+                String textoParaEnviar = tipo + " " + diasSemana[i-1];
+
+                if (resID != 0) {
+                    configurarClick(resID, textoParaEnviar);
+                }
+            }
+        }
+    }
+
+
+
+    private void configurarClick(int cardId, String nombreComida) {
+        CardView card = findViewById(cardId);
+        if (card != null) {
+            card.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Creamos el Intent para ir a la actividad de detalle
+                    Intent intent = new Intent(MainActivity.this, ComidasDiaActivity.class);
+
+                    // Pasamos datos extra (opcional, para saber qué comida se pulsó)
+                    intent.putExtra("NOMBRE_COMIDA", nombreComida);
+
+                    startActivity(intent);
+                }
+            });
+        }
     }
 }
 

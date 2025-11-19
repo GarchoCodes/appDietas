@@ -1,6 +1,8 @@
 package com.example.appdietas;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +21,12 @@ public class CambiarComidaActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        ImageView btnVolver = findViewById(R.id.btnVolver);
+
+        btnVolver.setOnClickListener(view -> {
+            finish();
         });
     }
 }

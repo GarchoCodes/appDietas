@@ -2,6 +2,7 @@ package com.example.appdietas;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.content.Intent;
@@ -46,6 +47,9 @@ public class ComidasDiaActivity extends AppCompatActivity {
             Intent intent = new Intent(ComidasDiaActivity.this, CambiarComidaActivity.class);
             startActivity(intent);
         });
+
+        ImageButton btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(v -> finish());
 
 
         // Ocultar contenidos al inicio
