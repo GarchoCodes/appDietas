@@ -53,7 +53,7 @@
                         android:background="#E0E0E0"
                         android:contentDescription="Imagen de la receta"
                         android:scaleType="centerCrop"
-                        tools:src="@tools:sample/backgrounds/scenic" />
+                        app:srcCompat="@drawable/desayuno1" />
 
                 </androidx.cardview.widget.CardView>
 
